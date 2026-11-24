@@ -1,0 +1,29 @@
+{
+  "name": "playwright-typescript-framework",
+  "version": "1.0.0",
+  "description": "End-to-end UI and API test automation with Playwright and TypeScript: Page Object Model, fixtures, saved login state, cross-browser projects and CI.",
+  "private": true,
+  "license": "MIT",
+  "author": "Dilshana Dasthakeer",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:ui": "playwright test --project=chromium --project=firefox --project=webkit",
+    "test:api": "playwright test --project=api",
+    "test:chromium": "playwright test --project=chromium",
+    "test:headed": "playwright test --project=chromium --headed",
+    "test:debug": "playwright test --project=chromium --debug",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit",
+    "install:browsers": "playwright install --with-deps"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.8.0"
+  }
+}
