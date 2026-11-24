@@ -25,9 +25,14 @@ export class InventoryPage {
     await this.page.goto('/inventory.html');
   }
 
-  /** The add and remove buttons share one slot per product, so one method covers both. */
+  /**
+   * The add and remove buttons share one slot per product, so one method covers both.
+   * The product image and title are links with role=button, so the name is matched exactly.
+   */
   private productButton(productName: string): Locator {
-    return this.items.filter({ hasText: productName }).getByRole('button');
+    return this.items
+      .filter({ hasText: productName })
+      .getByRole('button', { name: /^(Add to cart|Remove)$/ });
   }
 
   async addToCart(productName: string): Promise<void> {
